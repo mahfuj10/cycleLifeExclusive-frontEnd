@@ -1,0 +1,7 @@
+/* -----------------------
+pagination selected button
+-------------------*/
+.selected{
+    color: #fff !important;
+    border-color: #fff !important;
+  }
