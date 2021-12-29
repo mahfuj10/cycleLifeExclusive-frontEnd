@@ -34,7 +34,7 @@ function AddReview({ openModal, setOpenModal }) {
     const handaleSubmitReview = e => {
 
         e.preventDefault();
-        fetch('https://protected-sea-40292.herokuapp.com/addReview', {
+        fetch('https://whispering-ridge-34346.herokuapp.com/addReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

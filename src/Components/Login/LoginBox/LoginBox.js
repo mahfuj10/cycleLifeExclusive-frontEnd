@@ -4,7 +4,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { BiLogInCircle } from 'react-icons/bi';
 import { IoLogoFacebook } from 'react-icons/io5';
 import useAuth from '../../Hooks/useAuth';
-import { Button, Paper, Typography } from '@mui/material';
+import { Alert, Button, Paper, Typography } from '@mui/material';
 import { useHistory, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Home/Navigation/Navigation/Navigation';
@@ -13,11 +13,11 @@ function LoginBox() {
 
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
-    const { handaleGoogleSign, loginUser } = useAuth();
+    const { handaleGoogleSign, loginUser, error, success } = useAuth();
     const location = useLocation();
     const history = useHistory();
 
-
+    // input style
     const inputStyle = {
         width: '100%',
         borderRadius: '25px',
@@ -25,13 +25,15 @@ function LoginBox() {
         border: '1px solid #1D2029',
         padding: "7px",
         marginBottom: '15px'
-    }
+    };
+    // input label
     const labelInput = {
         fontSize: '14px',
         fontWeight: 600,
         color: '#1D2029'
     }
 
+    // form submit button
     const submitButton = {
         border: '1px solid #1D2029',
         padding: '5px 55px',
@@ -43,11 +45,14 @@ function LoginBox() {
         borderRadius: '25px'
     }
 
+    // submit register form
     const handaleSubmitForm = e => {
         e.preventDefault();
         loginUser(email, password, location, history);
 
-    }
+    };
+
+    // google facebook button style
     const provideButton = {
         background: '#ffff',
         border: '1px solid #1D2029',
@@ -57,7 +62,7 @@ function LoginBox() {
         color: '#1092F3',
         marginRight: "40px",
         alignItems: "center",
-    }
+    };
 
 
     return (
@@ -90,15 +95,22 @@ function LoginBox() {
                                 <FcGoogle /></Typography>
                         </Button>
                         <Button variant="contained"
-                            // onClick={handaleGoogleSign}
                             style={provideButton}
                         >
                             <Typography variant='h5'>
                                 <IoLogoFacebook /></Typography>
                         </Button>
+
                     </Box>
+
+                    {success && <Alert sx={{ mt: 5, mb: 2 }} severity="success">{success}</Alert>}
+                    {error && <Alert severity="error">{error}</Alert>}
+
                 </Paper>
+
             </Box>
+
+
         </>
     );
 }

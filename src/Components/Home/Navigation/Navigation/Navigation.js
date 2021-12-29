@@ -1,18 +1,9 @@
 import React, { createContext, useEffect, useContext } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import { Divider, Drawer, List, ListItem, ListItemText, AppBar, Box, Toolbar, IconButton, Typography, Menu, Avatar, Button, Tooltip, MenuItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 import { GrLogout } from 'react-icons/gr';
 import { useTheme } from '@mui/material';
 import { Link, NavLink } from 'react-router-dom';
@@ -20,7 +11,9 @@ import CartDrawer from '../../CartDrawer/CartDrawer';
 import LoginModal from '../../../Login/LoginModal/LoginModal';
 import useAuth from '../../../Hooks/useAuth';
 import { makeStyles } from '@mui/styles';
-import { Divider, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { AiOutlineHome } from 'react-icons/ai';
+import { BsBicycle } from 'react-icons/bs';
+import { MdOutlineDashboard } from 'react-icons/md';
 
 
 export const searchContext = createContext();
@@ -32,7 +25,7 @@ const Navbar = () => {
     const [openDrawer, setOpenDrawer] = React.useState(false);
     const [openModal, setOpenModal] = React.useState(false);
     const [state, setState] = React.useState(false);
-    const [searchValue, setSearchValue] = useContext(searchContext)
+    const [searchProducts, setSearchValue] = useContext(searchContext)
     const { user, handaleLogOut } = useAuth();
 
     // setSearchValue("Hello world")
@@ -52,7 +45,7 @@ const Navbar = () => {
         marginRight: '20px',
         backgroundColor: "#1D2029",
         color: "whiteSmoke"
-    }
+    };
 
     const navLink = {
         textDecoration: "none",
@@ -60,7 +53,7 @@ const Navbar = () => {
         marginRight: "15px",
         letterSpacing: "3px",
         fontSize: '15px'
-    }
+    };
 
     // drawer open
     const handleDrawerOpen = () => {
@@ -79,7 +72,7 @@ const Navbar = () => {
     // form submit
     const handaleSubmitForm = e => {
         e.preventDefault();
-    }
+    };
 
     // trigger button
     useEffect(() => {
@@ -119,8 +112,7 @@ const Navbar = () => {
         navLogo: {
             [theme.breakpoints.down('md')]: {
                 position: 'absolute',
-                bottom: '70px',
-                marginLeft: '15%',
+                bottom: '70px'
             }
         }
 
@@ -134,43 +126,41 @@ const Navbar = () => {
 
         >
             <List sx={{ mt: '50%' }}>
-                <Divider />
-                <ListItem button >
-                    <ListItemText>
-                        <Link to="/">
-                            HOME
-                        </Link>
-                    </ListItemText>
-                </ListItem>
-                <Divider />
-                <ListItem button >
-                    <ListItemText>
-                        <Link to="/blog/myOrder">
-                            My Order
-                        </Link>
-                    </ListItemText>
-                </ListItem>
-                <Divider />
-                <ListItem button >
-                    <ListItemText>
-                        <Link to="/blog">
-                            Dashborad
-                        </Link>
-                    </ListItemText>
-                </ListItem>
-                <Divider />
+                <Divider sx={{ color: '#98a1bc' }} />
+                <Link to="/" style={{ textDecoration: "none", color: "#98a1bc" }}>
+                    <ListItem button>
+                        <ListItemText>
+                            <AiOutlineHome />  HOME
+                        </ListItemText>
+                    </ListItem>
+                </Link>
+                <Divider sx={{ color: '#98a1bc' }} />
+                <Link to="/cycles" style={{ textDecoration: "none", color: "#98a1bc" }}>
+                    <ListItem button >
+                        <ListItemText>
 
+                            <BsBicycle />    CYCLES
+
+                        </ListItemText>
+                    </ListItem>
+                </Link>
+                <Divider sx={{ color: '#98a1bc' }} />
+                <Link to="/dashboards" style={{ textDecoration: "none", color: "#98a1bc" }}>
+                    <ListItem button >
+                        <ListItemText>
+                            <MdOutlineDashboard />   DASHBOARD
+                        </ListItemText>
+                    </ListItem>
+                </Link>
+                <Divider sx={{ color: '#98a1bc' }} />
                 <ListItem>
-                    {user.email && <ListItemText>
+                    {user.email && <ListItemText sx={{ color: "#98a1bc" }}>
                         <img src={user?.photoURL} style={{ width: '40px', borderRadius: "50%", marginRight: '10px' }} alt="userImage" />
                         {user?.displayName}
                     </ListItemText>}
                 </ListItem>
-                {user.email && <Divider />}
-                <ListItem button >
+                {user.email && <Divider sx={{ color: '#98a1bc' }} />}
 
-                </ListItem>
-                <Divider />
             </List>
         </Box>
     );
@@ -203,7 +193,7 @@ const Navbar = () => {
                             className={navLogo}
                             component="div"
                         >
-                            MAHFUJ
+                            cycleLife
                         </Typography>
                     </Box>
                     {/* className='nav-items' */}
@@ -270,8 +260,11 @@ const Navbar = () => {
                             >
                                 {/* {settings.map((setting) => (
                             <MenuItem key={setting} onClick={handleCloseNavMenu}> */}
-                                <MenuItem>
-                                    <Typography textAlign="center"
+                                <MenuItem sx={{ display: 'grid', gap: 1 }}>
+                                    <Typography>
+                                        {user?.displayName}
+                                    </Typography>
+                                    <Typography
                                         onClick={handaleLogOut}>
                                         <GrLogout />   Log Out
                                     </Typography>

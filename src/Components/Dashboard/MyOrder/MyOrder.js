@@ -1,16 +1,8 @@
 import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import { Paper, TableRow, TableCell, Table, TableContainer, TableBody, TableHead } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
-
-
 
 
 
@@ -20,7 +12,7 @@ const MyOrder = () => {
     const { user } = useAuth();
 
     React.useEffect(() => {
-        fetch(`https://protected-sea-40292.herokuapp.com/myCart/${user?.email}`)
+        fetch(`https://whispering-ridge-34346.herokuapp.com/myCart/${user?.email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [orders, user]);
@@ -38,7 +30,7 @@ const MyOrder = () => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                const uri = `https://protected-sea-40292.herokuapp.com/myCart/${id}`;
+                const uri = `https://whispering-ridge-34346.herokuapp.com/myCart/${id}`;
                 fetch(uri, {
                     method: "DELETE",
                 })

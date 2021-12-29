@@ -1,16 +1,7 @@
 import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import { Paper, TableRow, TableHead, Table, TableBody, TableCell, TableContainer } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Swal from 'sweetalert2';
-
-
-
 
 
 export default function ManageOrder() {
@@ -19,7 +10,7 @@ export default function ManageOrder() {
     const [status, setStatus] = React.useState('');
 
     React.useEffect(() => {
-        fetch(`https://protected-sea-40292.herokuapp.com/cartProducts`)
+        fetch(`https://whispering-ridge-34346.herokuapp.com/cartProducts`)
             .then(res => res.json())
             .then(data => setAllOrders(data))
     }, [allOrders]);
@@ -42,7 +33,7 @@ export default function ManageOrder() {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                const uri = `https://protected-sea-40292.herokuapp.com/myCart/${id}`;
+                const uri = `https://whispering-ridge-34346.herokuapp.com/myCart/${id}`;
                 fetch(uri, {
                     method: "DELETE",
                 })
@@ -65,7 +56,7 @@ export default function ManageOrder() {
 
     const handaleStatusChange = id => {
 
-        fetch(`https://protected-sea-40292.herokuapp.com/updateStatus/${id}`, {
+        fetch(`https://whispering-ridge-34346.herokuapp.com/updateStatus/${id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -106,6 +97,7 @@ export default function ManageOrder() {
                                 <TableCell align="right">{order?.name}</TableCell>
                                 <TableCell align="right" >
                                     <DeleteIcon
+                                        type="button"
                                         onClick={() => handaleDeleteProduct(order._id)}
                                     />
                                 </TableCell>

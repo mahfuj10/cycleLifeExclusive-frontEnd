@@ -4,7 +4,6 @@ import Alert from '@mui/material/Alert';
 import { CircularProgress, Paper } from '@mui/material';
 import useAuth from '../../Hooks/useAuth';
 import '../../Style/Style.css';
-import { Box } from '@mui/lab/node_modules/@mui/system';
 
 
 
@@ -16,7 +15,6 @@ const CheckoutForm = ({ cartProducts, price }) => {
     const [error, setError] = useState("");
     const [process, setProcessing] = useState(false)
     const [clientSecret, setClientSecret] = useState("");
-    const [product, setProduct] = useState({});
     const name = 'Mahfujur Rahman';
     const { user } = useAuth();
     const email = "mahfujglobal@gmail.com";
@@ -37,7 +35,7 @@ const CheckoutForm = ({ cartProducts, price }) => {
                 setClientSecret(data.clientSecret);
             });
 
-    }, []);
+    }, [price]);
 
     // pay button
     const payButton = {
@@ -92,9 +90,8 @@ const CheckoutForm = ({ cartProducts, price }) => {
         }
         else {
             setError('');
-            console.log(paymentIntent);
+            setSuccess("your payment is done");
             setProcessing(false);
-            setSuccess("your payment is done")
 
             // save to database
             const payment = {
@@ -103,7 +100,7 @@ const CheckoutForm = ({ cartProducts, price }) => {
                 last4: paymentMethod.card.last4,
                 isPaid: "true",
                 transsaction: paymentIntent.client_secret.slice('_secret')[0]
-            }
+            };
             const uri = `http://localhost:5000/cartProducts/${user.email}`
             fetch(uri, {
                 method: 'PUT',
@@ -114,8 +111,7 @@ const CheckoutForm = ({ cartProducts, price }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
-                    alert("update")
+
                 })
 
         };

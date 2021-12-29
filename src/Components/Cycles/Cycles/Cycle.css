@@ -5,3 +5,25 @@ pagination selected button
     color: #fff !important;
     border-color: #fff !important;
   }
+  .blog{
+    display: flex !important;
+    justify-content: center !important;
+  };
+
+
+  /* -----------------
+      media query
+  ------------------*/
+
+  @media only screen and (max-width: 600px) {
+
+    .cycle{
+      display: flex !important;
+      justify-content: center !important;
+    };
+    .cycle{
+      margin-left: auto !important;
+      margin-right: auto !important;
+    };
+   
+  }

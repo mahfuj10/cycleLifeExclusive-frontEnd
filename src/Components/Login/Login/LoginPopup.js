@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Box, TextField, Tab } from '@mui/material';
+import { Box, Tab } from '@mui/material';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
-import { styled } from '@mui/material/styles';
 import TabPanel from '@mui/lab/TabPanel';
 import { FcGoogle } from 'react-icons/fc';
 import '../../Style/Style.css';
@@ -105,14 +104,13 @@ function LoginPopup() {
 
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                         <Button variant="contained"
-                            onClick={handaleGoogleSign}
+                            onClick={() => handaleGoogleSign(location, history)}
                             style={provideButton}
                         >
                             <Typography variant='h5'>
                                 <FcGoogle /></Typography>
                         </Button>
                         <Button variant="contained"
-                            // onClick={handaleGoogleSign}
                             style={provideButton}
                         >
                             <Typography variant='h5'>

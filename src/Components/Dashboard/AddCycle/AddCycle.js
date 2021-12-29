@@ -41,7 +41,7 @@ function AddCycle({ openCycleModal, setOpenCycleModal }) {
 
         e.preventDefault();
 
-        fetch('https://protected-sea-40292.herokuapp.com/addCycle', {
+        fetch('https://whispering-ridge-34346.herokuapp.com/addCycle', {
             method: "POST",
             body: formData
         })

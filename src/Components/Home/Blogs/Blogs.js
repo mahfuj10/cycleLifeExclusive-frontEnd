@@ -2,6 +2,7 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import '../../Cycles/Cycles/Cycle.css';
 import Typography from '@mui/material/Typography';
 import { Box, CardActionArea, Grid } from '@mui/material';
 import Aos from 'aos';
@@ -57,8 +58,9 @@ export default function Blogs() {
 
                     {
                         blogs.map(blog => <Grid
+                            className='blog'
                             key={blog.id}
-                            item md={6} lg={4}>
+                            item xs={12} md={6} lg={4}>
                             <Card data-aos="fade-up" sx={{ maxWidth: 345, mt: 10, background: '#1E212A' }}>
                                 <CardActionArea>
                                     <CardMedia

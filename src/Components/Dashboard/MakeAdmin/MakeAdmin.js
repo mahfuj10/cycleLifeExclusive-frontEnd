@@ -31,7 +31,7 @@ const MakeAdmin = ({ open, setOpen }) => {
     const handaleMakeAdmin = e => {
         const user = { email };
 
-        fetch(`https://protected-sea-40292.herokuapp.com/users/admin`, {
+        fetch(`https://whispering-ridge-34346.herokuapp.com/users/admin`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

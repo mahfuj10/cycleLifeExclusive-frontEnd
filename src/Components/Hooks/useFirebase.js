@@ -117,7 +117,7 @@ const useFirebase = () => {
     // save user on database 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://protected-sea-40292.herokuapp.com/users', {
+        fetch('     https://whispering-ridge-34346.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -129,7 +129,7 @@ const useFirebase = () => {
 
     // get web admin
     useEffect(() => {
-        fetch(`https://protected-sea-40292.herokuapp.com/users/${user?.email}`)
+        fetch(`     https://whispering-ridge-34346.herokuapp.com/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.Admin))
     }, [user?.email])

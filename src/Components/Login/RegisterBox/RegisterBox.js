@@ -21,7 +21,7 @@ const RegisterBox = () => {
 
 
 
-
+    // register form input
     const inputStyle = {
         width: '100%',
         borderRadius: '25px',
@@ -29,13 +29,16 @@ const RegisterBox = () => {
         border: '1px solid #1D2029',
         padding: "7px",
         marginBottom: '15px'
-    }
+    };
+
+    // input label
     const labelInput = {
         fontSize: '14px',
         fontWeight: 600,
         color: '#1D2029'
-    }
+    };
 
+    // submit button
     const submitButton = {
         border: '1px solid #1D2029',
         padding: '5px 55px',
@@ -48,7 +51,7 @@ const RegisterBox = () => {
     };
 
 
-
+    // register user
     const handaleRegisterUser = e => {
         e.preventDefault();
         if (password !== rePassword) {
@@ -59,6 +62,7 @@ const RegisterBox = () => {
 
     };
 
+    // provider button style
     const provideButton = {
         background: '#ffff',
         border: '1px solid #1D2029',
@@ -104,14 +108,13 @@ const RegisterBox = () => {
 
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                         <Button variant="contained"
-                            onClick={handaleGoogleSign}
+                            onClick={() => handaleGoogleSign(location, history)}
                             style={provideButton}
                         >
                             <Typography variant='h5'>
                                 <FcGoogle /></Typography>
                         </Button>
                         <Button variant="contained"
-                            // onClick={handaleGoogleSign}
                             style={provideButton}
                         >
                             <Typography variant='h5'>

@@ -14,7 +14,7 @@ import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { Button } from '@mui/material';
 import '../../Style/Style.css';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const drawerWidth = 350;
 
@@ -81,7 +81,6 @@ export default function CartDrawer({ openDrawer, setOpenDrawer }) {
         fontSize: '18px',
         fontWeight: 600
     };
-
     const proceedButton = {
         width: '90%',
         mt: 2,
@@ -90,15 +89,13 @@ export default function CartDrawer({ openDrawer, setOpenDrawer }) {
         marginX: 2,
         color: "#262931",
         fontWeight: 600
-
-    }
+    };
 
     React.useEffect(() => {
-        fetch(`https://protected-sea-40292.herokuapp.com/myCart/${user?.email}`)
+        fetch(`https://whispering-ridge-34346.herokuapp.com/myCart/${user?.email}`)
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [cartPorducts, user]);
-
 
     // delete cart product
 
@@ -115,7 +112,7 @@ export default function CartDrawer({ openDrawer, setOpenDrawer }) {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                const uri = `https://protected-sea-40292.herokuapp.com/myCart/${id}`;
+                const uri = `https://whispering-ridge-34346.herokuapp.com/myCart/${id}`;
                 fetch(uri, {
                     method: "DELETE",
                 })
@@ -135,7 +132,6 @@ export default function CartDrawer({ openDrawer, setOpenDrawer }) {
             };
         });
     };
-
 
 
     return (
@@ -194,7 +190,7 @@ export default function CartDrawer({ openDrawer, setOpenDrawer }) {
                                 )
                             }
 
-                            <Box sx={{ mt: '60%', mb: 5, }}>
+                            {cartPorducts[0]?.payment?.isPaid !== 'true' ? <Box sx={{ mt: '60%', mb: 5, }}>
                                 <Typography variant='h6' sx={proceedText}>
                                     Subtotal: <span>
                                         ${total}</span>
@@ -212,7 +208,30 @@ export default function CartDrawer({ openDrawer, setOpenDrawer }) {
                                     onClick={() => history.push('/payment')} >
                                     Proceed to checkout
                                 </Button>
-                            </Box>
+                            </Box> :
+                                <Box sx={{ mt: '60%', mb: 5 }}>
+                                    <Typography variant='h6' sx={proceedText}>
+                                        Total payment amount: <span>
+                                            ${cartPorducts[0]?.payment?.amount / 100}
+                                        </span>
+                                    </Typography>
+                                    <Typography variant='h6' sx={proceedText}>
+                                        Created id : <span>
+                                            {cartPorducts[0]?.payment?.created}
+                                        </span>
+                                    </Typography>
+                                    <Typography variant='h6' sx={proceedText}>
+                                        Last four digit of card : <span>
+                                            {cartPorducts[0]?.payment?.last4}
+                                        </span>
+                                    </Typography>
+                                    <Typography variant='h6' sx={proceedText}>
+                                        Transsaction : <span>
+                                            {cartPorducts[0]?.payment?.transsaction}
+                                        </span>
+                                    </Typography>
+                                </Box>
+                            }
                         </Box>
                 }
 

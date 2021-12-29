@@ -47,7 +47,7 @@ const Product = ({ product }) => {
     return (
         <>
             <Grid item xs={12} md={6} lg={3} className="cycle">
-                <Card data-aos="fade-up" sx={{ maxWidth: '300px' }} style={{ background: "rgb(39 42 51)" }}>
+                <Card className="cycle" data-aos="fade-up" sx={{ maxWidth: '300px' }} style={{ background: "rgb(39 42 51)" }}>
                     <CardActionArea>
                         <span style={badge}>20% off</span>
                         <aside
@@ -92,6 +92,7 @@ const Product = ({ product }) => {
                 </Card>
             </Grid>
 
+            {/* product detials modal */}
             <ViewModal
                 product={product}
                 openModal={openModal}

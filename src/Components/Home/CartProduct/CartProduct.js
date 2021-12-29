@@ -6,7 +6,7 @@ import Rating from 'react-rating';
 
 const CartProduct = ({ product, handaleDeleteProduct }) => {
 
-    const { name, image, rating, price, _id } = product;
+    const { name, image, rating, price, _id, payment } = product;
 
 
 
@@ -21,7 +21,7 @@ const CartProduct = ({ product, handaleDeleteProduct }) => {
                 <img width="130" src={image} alt="productimage" />
 
                 <Box>
-                    <Typography variant='h6' sx={{ fontSize: '18px', fontWeight: 600 }}>{name}</Typography>
+                    <Typography variant='h6' sx={{ fontSize: '16px', fontWeight: 600 }}>{name}</Typography>
                     <Typography variant='body' sx={{ fontSize: '12px' }}>
                         <Rating
                             initialRating={rating}
@@ -31,12 +31,16 @@ const CartProduct = ({ product, handaleDeleteProduct }) => {
                     </Typography>
                     <Typography variant='h6' sx={{ color: "#111318", fontSize: '18px', fontWeight: 600 }}>${price}</Typography>
                 </Box>
-                <Button variant='text'
-                    onClick={() => handaleDeleteProduct(_id)}
-                    sx={{ color: "#111318" }}
-                >
-                    <ImCross />
-                </Button>
+
+                {
+                    payment?.isPaid !== 'true' && <Button variant='text'
+                        onClick={() => handaleDeleteProduct(_id)}
+                        sx={{ color: "#111318" }}
+                    >
+                        <ImCross />
+                    </Button>
+                }
+
             </Box>
             <Divider />
         </>

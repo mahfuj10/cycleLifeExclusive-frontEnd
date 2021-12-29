@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import React, { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import useAuth from '../../Hooks/useAuth';
 import Navigation from '../../../Components/Home/Navigation/Navigation/Navigation';
-import { Box } from '@mui/system';
-import { Container } from '@mui/material';
 
 
 const stripePromise = loadStripe('pk_test_51K93ltBcGooWtax9JKsV2tP7uqmbQYtdpRXFr4Ey1CHijNCVjRMV8eDkLX1YlNvDJHvktGKwvAjYvzFo93K3j06q00slg9hLuX');
@@ -18,7 +15,7 @@ const Payment = () => {
     const [cartProducts, setCartProducts] = useState([]);
 
     React.useEffect(() => {
-        fetch(`https://protected-sea-40292.herokuapp.com/myCart/${user?.email}`)
+        fetch(`https://whispering-ridge-34346.herokuapp.com/myCart/${user?.email}`)
             .then(res => res.json())
             .then(data => setCartProducts(data))
     }, [cartProducts, user]);
@@ -39,16 +36,14 @@ const Payment = () => {
         <section style={{ width: '100vw', height: '100vh', background: '#1D2029' }}>
 
             <Navigation />
-            <Box >
-                {
-                    total > 0 && <Elements stripe={stripePromise}>
-                        <CheckoutForm
-                            cartProducts={cartProducts}
-                            price={total}
-                        />
-                    </Elements>
-                }
-            </Box>
+            {
+                total > 0 && <Elements stripe={stripePromise}>
+                    <CheckoutForm
+                        cartProducts={cartProducts}
+                        price={total + 5}
+                    />
+                </Elements>
+            }
         </section >
     );
 };

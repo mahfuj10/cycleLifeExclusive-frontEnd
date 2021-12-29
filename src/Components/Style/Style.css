@@ -36,12 +36,12 @@ html{
 -------------*/
 ::-moz-selection { 
   color: white;
-  background: none;
+  background: black;
 }
 
 ::selection {
   color: #FFFFFF;
-  background: none;
+  background: black;
 }
 
 
@@ -49,9 +49,6 @@ html{
 
 /*------- header text -------- */
 
-.patterns {
-  height: 100vh;
-}
 
 
 
@@ -59,13 +56,12 @@ svg text {
   font-family: 'Hikou Outline';
   letter-spacing: 2px;
   stroke: whitesmoke;
-  font-size: 85px;
+  font-size: 5.3vw;
   font-weight: 500;
   stroke-width: 0.8;
- 
-  animation: textAnimate 10s infinite alternate;
-  
-}
+  animation-delay: 0s !important;
+  animation: textAnimate 10s infinite;
+};
 
 @keyframes textAnimate {
   0% {
@@ -90,9 +86,12 @@ svg text {
   
 };
 
+/*----------------- side nav --------------  */
 
-
-
+.MuiPaper-elevation16{}
+.MuiDrawer-paperAnchorLeft{
+  background-color: #1D2029 !important
+}
 
 /* ---------- review section -----------*/
 

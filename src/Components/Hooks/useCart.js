@@ -1,4 +1,5 @@
 import { useHistory } from "react-router";
+import Swal from "sweetalert2";
 import useAuth from "./useAuth";
 
 const useCart = () => {
@@ -16,7 +17,7 @@ const useCart = () => {
         product.email = user.email;
         product.payment = 'unpaid';
         product.status = 'pending';
-        fetch('https://protected-sea-40292.herokuapp.com/addToCart', {
+        fetch('https://whispering-ridge-34346.herokuapp.com/addToCart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -25,7 +26,11 @@ const useCart = () => {
         })
             .then(res => res.json())
             .then(data => {
-                alert("this product added on cart")
+                Swal.fire(
+                    'Added !',
+                    'This product added on your cart.',
+                    'success'
+                );
             });
     };
 

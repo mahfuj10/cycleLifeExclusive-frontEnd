@@ -1,18 +1,13 @@
-import { Box, Button, Grid, TextField, Typography } from '@mui/material';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import { IoIosSend } from 'react-icons/io';
 import React from 'react';
 import '../../Style/Style.css';
 import Aos from 'aos';
-import { styled } from '@mui/material/styles';
 
 
 const ContactUs = () => {
 
-    // input style
-    // const inputStyle = {
-    //     width: '90%',
-    //     marginBottom: "40px"
-    // };
+
     const inputStyle = {
         width: '90%',
         marginBottom: "40px",
@@ -21,27 +16,7 @@ const ContactUs = () => {
         border: '1px solid #98a1bc',
         background: "#1D2029"
     };
-    // custom css input
-    const CssTextField = styled(TextField)({
-        '& label.Mui-focused': {
-            color: 'white',
-        },
-        '& .MuiInput-underline:after': {
-            borderBottomColor: 'white',
-        },
-        '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-                borderColor: '#98a1bc',
 
-            },
-            '&:hover fieldset': {
-                borderColor: '#98a1bc',
-            },
-            '&.Mui-focused fieldset': {
-                borderColor: 'white',
-            },
-        },
-    });
     // submit button style
     const submitButton = {
         display: "block",
@@ -78,7 +53,7 @@ const ContactUs = () => {
 
                     <Grid item xs={12} lg={6}>
                         <iframe
-                            data-aos="fade-right"
+                            data-aos="fade-up"
                             className='google-map'
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116834.00977805836!2d90.34928591682575!3d23.78077774431569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1639818784287!5m2!1sen!2sbd"
                             height="430" style={{ border: '0px', width: '90%' }} allowFullScreen="" loading="lazy" title='locationOfShowroom'>
@@ -86,10 +61,8 @@ const ContactUs = () => {
                         </iframe>
                     </Grid>
 
-                    <Grid data-aos="fade-left" className='contact-form' item xs={12} lg={6} >
+                    <Grid data-aos="fade-up" className='contact-form' item xs={12} lg={6} >
 
-                        {/* <CssTextField sx={inputStyle} label="Your Name *" id="custom-css-outlined-input" /> */}
-                        {/* <CssTextField sx={inputStyle} label="Your Email *" id="custom-css-outlined-input" /> */}
                         <input style={inputStyle} placeholder='Your Name *' type="name" />
                         <input style={inputStyle} type="email" placeholder='Your Email *' />
                         <textarea

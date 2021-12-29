@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Box, Button, Grid, Pagination, Typography } from '@mui/material';
+import { Box, CircularProgress, Grid, Typography } from '@mui/material';
 import './Cycle.css';
 import Aos from 'aos';
 import Navbar, { searchContext } from '../../Home/Navigation/Navigation/Navigation';
@@ -12,14 +12,13 @@ const Cycles = () => {
     const [searchProducts, setSearchProducts] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [page, setPage] = useState(0);
-    const [pageNumber, setPageNumber] = useState(0);
     const [searchValue] = useContext(searchContext);
     const size = 8;
 
     // fetch data
 
     useEffect(() => {
-        fetch(`http://localhost:5000/cycles?page=${page}&&size=${size}`)
+        fetch(`https://whispering-ridge-34346.herokuapp.com/cycles?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setCycles(data.products);
@@ -72,16 +71,22 @@ const Cycles = () => {
                         POPULAR CYCLE
                     </Typography>
 
-                    <Grid container spacing={2}>
-                        {
-                            matchProducts?.map(cycle => <Cycle
-                                key={cycle._id}
-                                cycle={cycle}
-                            />
-                            )
-                        }
+                    {
+                        matchProducts.length === 0 ?
+                            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                                <CircularProgress sx={{ color: 'whitesmoke' }} />
+                            </Box>
+                            :
+                            <Grid container spacing={2}>
+                                {
+                                    matchProducts?.map(cycle => <Cycle
+                                        key={cycle._id}
+                                        cycle={cycle}
+                                    />
+                                    )
+                                }
 
-                    </Grid>
+                            </Grid>}
                     <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 4 }}>
 
                         {[...Array(pageCount).keys()].map(number => <button variant='contained'

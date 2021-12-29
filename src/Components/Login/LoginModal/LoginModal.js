@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Alert, Box, Modal, Fade, Grid, Typography, Backdrop } from '@mui/material';
+import loginBanner from '../../../images/loginPopupBanner.jpg';
 import LoginPopup from '../Login/LoginPopup';
 import useAuth from '../../Hooks/useAuth';
 
@@ -41,7 +42,7 @@ function LoginModal({ openModal, setOpenModal }) {
                     <Box sx={loginModal}>
                         <Grid container spacing={0}>
                             <Grid item xs={6}
-                                sx={{ backgroundImage: `url(https://images.unsplash.com/photo-1569448097598-30d0df0df0db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80)`, backgroundSize: 'cover' }}
+                                sx={{ backgroundImage: `url(${loginBanner})`, backgroundSize: 'cover' }}
 
                             >
 
@@ -55,7 +56,6 @@ function LoginModal({ openModal, setOpenModal }) {
                                 <Box>
                                     {success && <Alert sx={{ mt: 5, mb: 2 }} severity="success">{success}</Alert>}
                                     {error && <Alert severity="error">{error}</Alert>}
-
                                 </Box>
 
                             </Grid>

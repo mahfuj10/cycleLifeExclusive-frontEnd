@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Alert, Box, Button, Typography } from '@mui/material';
 import React from 'react';
 import { BiLogInCircle } from 'react-icons/bi';
 import { FcGoogle } from 'react-icons/fc';
@@ -8,7 +8,7 @@ import useAuth from '../../Hooks/useAuth';
 
 const Register = () => {
 
-    const { registerUser } = useAuth();
+    const { registerUser, success, error } = useAuth();
     const [email, setEmail] = React.useState('');
     const [name, setName] = React.useState('');
     const [rePassword, setRePassword] = React.useState('');
@@ -56,7 +56,7 @@ const Register = () => {
         color: '#1092F3',
         marginRight: "40px",
         alignItems: "center",
-    }
+    };
 
 
 
@@ -80,20 +80,22 @@ const Register = () => {
 
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                     <Button variant="contained"
-                        onClick={handaleGoogleSign}
+                        onClick={() => handaleGoogleSign(location, history)}
                         style={provideButton}
                     >
                         <Typography variant='h5'>
                             <FcGoogle /></Typography>
                     </Button>
                     <Button variant="contained"
-                        // onClick={handaleGoogleSign}
                         style={provideButton}
                     >
                         <Typography variant='h5'>
                             <IoLogoFacebook /></Typography>
                     </Button>
                 </Box>
+
+                {success && <Alert sx={{ mt: 2, mb: 2 }} severity="success">{success}</Alert>}
+                {error && <Alert severity="error" sx={{ mt: 2 }}>{error}</Alert>}
 
             </form>
         </>

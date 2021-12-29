@@ -11,18 +11,21 @@ import { Typography } from '@mui/material';
 const Review = () => {
 
     const [reviews, setReviews] = useState([]);
+    // fetch data
     useEffect(() => {
-        fetch('https://protected-sea-40292.herokuapp.com/review')
+        fetch('     https://whispering-ridge-34346.herokuapp.com/review')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, []);
 
+    // data aos
     useEffect(() => {
         AOS.init({
             duration: 2000,
         });
     }, []);
 
+    // review box
     const reivewBox = {
         width: '400px',
         height: '300px',
@@ -30,12 +33,15 @@ const Review = () => {
         padding: '10px 30px',
         color: "white"
     };
+    // review quote
     const reviewQuote = {
         color: 'rgb(169 165 165 / 50%)',
         position: "absolute",
         marginTop: '30px'
     };
-    const settings = {
+
+    // react slider
+    const slickSlider = {
         dots: false,
         infinite: true,
         speed: 2000,
@@ -55,7 +61,7 @@ const Review = () => {
                 height: '70vh ',
                 width: '100%',
                 backgroundSize: 'calc(100%)',
-                backgroundAttachment: 'fixed'
+                backgroundAttachment: 'fixed',
             }}
         >
 
@@ -64,7 +70,7 @@ const Review = () => {
 
                 <Typography variant='h1' sx={{ color: "whitesmoke", fontSize: '30px', mt: -3, letterSpacing: 1, fontWeight: 600, paddingBottom: "5%" }}>WHAT OUR CLIENT SAYS</Typography>
 
-                <Slider {...settings} className='user-feedback' style={reivewBox}>
+                <Slider {...slickSlider} className='user-feedback' style={reivewBox}>
                     {
                         reviews.map(review => <Box key={review._id}>
                             <Typography variant='h2'> <FaQuoteLeft style={reviewQuote} /></Typography>
