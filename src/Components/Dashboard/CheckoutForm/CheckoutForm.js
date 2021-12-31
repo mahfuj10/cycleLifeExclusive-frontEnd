@@ -23,7 +23,7 @@ const CheckoutForm = ({ cartProducts, price }) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/createPayment', {
+        fetch('https://whispering-ridge-34346.herokuapp.com/createPayment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
