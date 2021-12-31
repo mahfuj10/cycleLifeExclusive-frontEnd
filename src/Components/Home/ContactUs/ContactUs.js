@@ -7,7 +7,7 @@ import Aos from 'aos';
 
 const ContactUs = () => {
 
-
+    // input style
     const inputStyle = {
         width: '90%',
         marginBottom: "40px",

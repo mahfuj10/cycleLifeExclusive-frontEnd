@@ -60,7 +60,7 @@ export default function Blogs() {
                         blogs.map(blog => <Grid
                             className='blog'
                             key={blog.id}
-                            item xs={12} md={6} lg={4}>
+                            item xs={12} sm={6} md={6} lg={4}>
                             <Card data-aos="fade-up" sx={{ maxWidth: 345, mt: 10, background: '#1E212A' }}>
                                 <CardActionArea>
                                     <CardMedia

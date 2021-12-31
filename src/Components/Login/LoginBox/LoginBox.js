@@ -20,42 +20,36 @@ function LoginBox() {
     // input style
     const inputStyle = {
         width: '100%',
-        borderRadius: '25px',
-        display: "block",
-        border: '1px solid #1D2029',
-        padding: "7px",
-        marginBottom: '15px'
+        marginBottom: "20px",
+        padding: '12px',
+        borderRadius: '5px',
+        border: '1px solid #98a1bc',
+        background: "#1D2029"
     };
     // input label
     const labelInput = {
         fontSize: '14px',
         fontWeight: 600,
-        color: '#1D2029'
+        color: '#98a1bc',
+        marginBottom: 5
     }
 
-    // form submit button
+    // submit button style
     const submitButton = {
-        border: '1px solid #1D2029',
-        padding: '5px 55px',
-        fontWeight: 'bold',
+        display: "block",
+        border: '1px solid #98a1bc',
+        padding: '10px 50px',
+        borderRadius: '25px',
+        color: '#98a1bc',
+        marginTop: 15,
         width: '100%',
-        marginTop: '10px',
-        backgroundColor: '#1D2029',
-        color: 'white',
-        borderRadius: '25px'
-    }
-
-    // submit register form
-    const handaleSubmitForm = e => {
-        e.preventDefault();
-        loginUser(email, password, location, history);
-
+        background: "#1D2029"
     };
 
     // google facebook button style
     const provideButton = {
-        background: '#ffff',
-        border: '1px solid #1D2029',
+        background: '#1D2029',
+        border: '1px solid #98a1bc',
         height: '50px',
         width: "40px",
         display: "flex",
@@ -64,27 +58,36 @@ function LoginBox() {
         alignItems: "center",
     };
 
+    // submit register form
+    const handaleSubmitForm = e => {
+        e.preventDefault();
+        loginUser(email, password, location, history);
+
+    };
+
+
+
 
     return (
         <>
             <Navbar />
 
-            <Box sx={{ width: '100%', height: '100vh', typography: 'body1', display: 'grid', justifyContent: 'center', alignItems: 'center', background: '#F6F9FC' }}>
+            <Box sx={{ width: '100%', height: '100vh', typography: 'body1', display: 'grid', justifyContent: 'center', alignItems: 'center', background: '#111318' }}>
 
-                <Paper elevation={3} sx={{ width: '350px', p: 3 }}>
-                    <Typography variant='h5' sx={{ fontWeight: 600, mb: 2 }}>Sign In</Typography>
-                    <form onSubmit={handaleSubmitForm}>
-                        <label style={labelInput}>Your Email</label>
+                <Paper elevation={5} sx={{ width: '350px', p: 3, background: "#1D2029" }}>
+                    <Typography variant='h5' sx={{ fontWeight: 600, mb: 2, color: "whitesmoke" }}>Sign In</Typography>
+                    <form className='login-form' onSubmit={handaleSubmitForm}>
+                        <label style={labelInput}>Your Email *</label>
                         <input onChange={e => setEmail(e.target.value)} style={inputStyle} type="text" required />
-                        <label style={labelInput}>Your Password</label>
+                        <label style={labelInput}>Your Password *</label>
                         <input onChange={e => setPassword(e.target.value)} style={inputStyle} type="password" required />
 
-                        <label style={{ fontWeight: 600, fontSize: '14px', color: "#1D2029" }}>Don't have an account? <Link to="/register">Register here</Link></label>
+                        <label style={{ fontWeight: 600, fontSize: '14px', color: "#98a1bc" }}>Don't have an account? <Link to="/register">Register here</Link></label>
 
                         <button type='submit' style={submitButton}>Sign In <BiLogInCircle /></button>
                     </form>
 
-                    <Typography sx={{ textAlign: 'center', fontWeight: 600, color: "#1D2029", mt: 1, mb: 1 }}>   <small>---------------------------- or ---------------------------</small></Typography>
+                    <Typography sx={{ textAlign: 'center', fontWeight: 600, color: "#98a1bc", mt: 1, mb: 1 }}>   <small>---------------------------- or ---------------------------</small></Typography>
 
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                         <Button variant="contained"

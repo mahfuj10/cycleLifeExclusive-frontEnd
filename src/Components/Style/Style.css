@@ -220,7 +220,7 @@ display: block;
 /* ---------------------
   login box 
 ---------------*/
-.login-form,.register-form,.contact-section input,textarea,textarea::placeholder,::placeholder{
+.login-form,.register-form,.contact-section, input,textarea,textarea::placeholder,::placeholder{
   color: #98a1bc;
 };
 

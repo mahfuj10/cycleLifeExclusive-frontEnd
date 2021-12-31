@@ -25,7 +25,7 @@ const Dashboard = () => {
     const { admin } = useAuth();
 
     return (
-        <Box sx={{ height: '100vh', width: "100vw", background: "#F6F9FC" }}>
+        <Box sx={{ height: '100vh', width: "100vw", background: "#111318" }}>
             <Navbar />
 
 
@@ -33,7 +33,7 @@ const Dashboard = () => {
 
 
 
-                <Paper elevation={3} sx={{ width: '200px', mt: 20 }}>
+                <Paper elevation={5} sx={{ width: '200px', mt: 20, background: "#1D2029", color: "#98a1bc" }}>
                     <CardActionArea>
                         <Box
                             onClick={() => setOpenModal(true)}
@@ -45,8 +45,8 @@ const Dashboard = () => {
                     </CardActionArea>
                 </Paper>
 
-                <Link to={`${url}/myOrder`}>
-                    <Paper elevation={3} sx={{ width: '200px', mt: 20 }}>
+                <Link to={`${url}/myOrder`} style={{ textDecoration: 'none' }}>
+                    <Paper elevation={5} sx={{ width: '200px', mt: 20, background: "#1D2029", color: "#98a1bc" }}>
                         <CardActionArea>
                             <Box
                                 sx={{ display: 'grid', justifyContent: 'center', p: 2 }}
@@ -59,9 +59,9 @@ const Dashboard = () => {
                 </Link>
 
                 {
-                    admin && <Box sx={{ display: "flex", flexWrap: 'wrap', columnGap: '50px' }}>
-                        <Link to={`${url}/manageOrder`}>
-                            <Paper elevation={3} sx={{ width: '200px', mt: 20 }}>
+                    admin && <Box sx={{ display: "flex", flexWrap: 'wrap', columnGap: '50px' }} >
+                        <Link to={`${url}/manageOrder`} style={{ textDecoration: 'none' }}>
+                            <Paper elevation={3} sx={{ width: '200px', mt: 20, background: "#1D2029", color: "#98a1bc" }}>
                                 <CardActionArea>
                                     <Box
                                         sx={{ display: 'grid', justifyContent: 'center', p: 2 }}
@@ -73,7 +73,7 @@ const Dashboard = () => {
                             </Paper>
                         </Link>
 
-                        <Paper elevation={3} sx={{ width: '200px', mt: 20 }}>
+                        <Paper elevation={3} sx={{ width: '200px', mt: 20, background: "#1D2029", color: "#98a1bc" }}>
                             <CardActionArea>
                                 <Box
                                     onClick={() => setAdminModal(true)}
@@ -85,7 +85,7 @@ const Dashboard = () => {
                             </CardActionArea>
                         </Paper>
 
-                        <Paper elevation={3} sx={{ width: '200px', mt: 20 }}>
+                        <Paper elevation={3} sx={{ width: '200px', mt: 20, background: "#1D2029", color: "#98a1bc" }}>
                             <CardActionArea>
                                 <Box
                                     onClick={() => setOpenCycleModal(true)}

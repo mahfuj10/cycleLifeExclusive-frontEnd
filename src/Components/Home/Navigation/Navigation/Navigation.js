@@ -164,7 +164,7 @@ const Navbar = () => {
             </List>
         </Box>
     );
-
+    console.log(user.photoURL)
 
     return (
         <>
@@ -258,18 +258,26 @@ const Navbar = () => {
                                 open={Boolean(anchorElUser)}
                                 onClose={handleCloseUserMenu}
                             >
-                                {/* {settings.map((setting) => (
-                            <MenuItem key={setting} onClick={handleCloseNavMenu}> */}
-                                <MenuItem sx={{ display: 'grid', gap: 1 }}>
-                                    <Typography>
+                                {/* menu items */}
+                                <MenuItem sx={{ display: 'grid', gap: 1, justifyContent: 'center' }}>
+
+                                    <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
+                                        <img style={{ borderRadius: '50%', margin: '0 auto' }} src={user?.photoURL} alt="" />
+                                    </Typography>
+
+                                    <Typography sx={{ textAlign: 'center' }}>
                                         {user?.displayName}
                                     </Typography>
+
+                                    <Typography sx={{ textAlign: 'center' }}>
+                                        {user?.email}
+                                    </Typography>
                                     <Typography
+                                        sx={{ textAlign: 'center' }}
                                         onClick={handaleLogOut}>
                                         <GrLogout />   Log Out
                                     </Typography>
                                 </MenuItem>
-                                {/* ))} */}
                             </Menu>
                         }
                     </Box>
