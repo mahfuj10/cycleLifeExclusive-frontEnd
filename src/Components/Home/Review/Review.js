@@ -31,7 +31,7 @@ const Review = () => {
         height: '300px',
         background: 'rgba(0,0,0,0.5)',
         padding: '10px 30px',
-        color: "white"
+        color: "white",
     };
     // review quote
     const reviewQuote = {
@@ -45,7 +45,6 @@ const Review = () => {
         dots: false,
         infinite: true,
         speed: 2000,
-
         slidesToShow: 1,
         autoplay: true,
         autoplaySpeed: 3000,
@@ -58,10 +57,10 @@ const Review = () => {
         <Box
             sx={{
                 backgroundImage: `url(${reviewBanner})`,
-                height: '70vh ',
                 width: '100%',
                 backgroundSize: 'calc(100%)',
                 backgroundAttachment: 'fixed',
+                paddingBottom: 20
             }}
         >
 
