@@ -10,6 +10,7 @@ import { searchContext } from './Components/Home/Navigation/Navigation/Navigatio
 import LoginBox from './Components/Login/LoginBox/LoginBox';
 import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
 import RegisterBox from './Components/Login/RegisterBox/RegisterBox';
+import SmoothScroll from './Components/SmoothScrollbar/SmoothScrollbar';
 
 function App() {
 

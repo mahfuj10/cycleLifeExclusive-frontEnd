@@ -43,10 +43,11 @@ const Product = ({ product }) => {
             easing: 'ease',
         });
     }, []);
+    // sx={{ display: 'flex', justifyContent: "center" }}
 
     return (
         <>
-            <Grid item xs={12} sm={6} md={6} lg={3} className="cycle">
+            <Grid item xs={12} sm={6} md={6} lg={3} sx={{ display: 'flex', justifyContent: "center" }}>
                 <Card className="cycle" data-aos="fade-up" sx={{ maxWidth: '300px' }} style={{ background: "rgb(39 42 51)" }}>
                     <CardActionArea>
                         <span style={badge}>20% off</span>

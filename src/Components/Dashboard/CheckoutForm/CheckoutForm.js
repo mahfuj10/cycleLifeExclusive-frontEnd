@@ -7,7 +7,7 @@ import '../../Style/Style.css';
 
 
 
-const CheckoutForm = ({ cartProducts, price }) => {
+const CheckoutForm = ({ price }) => {
 
     const stripe = useStripe();
     const elements = useElements();
@@ -101,7 +101,7 @@ const CheckoutForm = ({ cartProducts, price }) => {
                 isPaid: "true",
                 transsaction: paymentIntent.client_secret.slice('_secret')[0]
             };
-            const uri = `http://localhost:5000/cartProducts/${user.email}`
+            const uri = `https://whispering-ridge-34346.herokuapp.com/cartProducts/${user.email}`
             fetch(uri, {
                 method: 'PUT',
                 headers: {
@@ -142,7 +142,7 @@ const CheckoutForm = ({ cartProducts, price }) => {
                             },
                         }}
                     />
-                    {process ? <CircularProgress /> : <button style={payButton} type="submit" disabled={!stripe}>
+                    {process && !error ? <CircularProgress /> : <button style={payButton} type="submit" disabled={!stripe}>
                         Pay $ {price}
                     </button>}
 

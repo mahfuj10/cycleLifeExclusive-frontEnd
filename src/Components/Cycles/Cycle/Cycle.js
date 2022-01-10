@@ -13,7 +13,7 @@ const Cycle = ({ cycle }) => {
 
     return (
         <>
-            <Grid item xs={12} sm={6} md={4} lg={3} sx={{ mb: 3 }} >
+            <Grid item xs={12} sm={6} md={4} lg={3} sx={{ display: 'flex', justifyContent: "center", mb: 3 }}>
                 <Card data-aos="fade-up" className="cycle" sx={{ width: '300px', background: "rgb(39 42 51)" }} >
                     <CardActionArea>
 

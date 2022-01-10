@@ -8,6 +8,7 @@ import DemoProduct from '../DemoProduct/DemoProduct/DemoProduct';
 import Header from '../Header/Header';
 import Review from '../Review/Review';
 import Navbar from '../Navigation/Navigation/Navigation';
+import SmoothScroll from '../../SmoothScrollbar/SmoothScrollbar';
 
 const Home = () => {
 
