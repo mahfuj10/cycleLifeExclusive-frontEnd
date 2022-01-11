@@ -16,11 +16,12 @@ const style = {
     border: '2px solid white',
     boxShadow: 24,
     p: 4,
+    borderRadius: 2
 };
 
 const inputStyle = {
     width: '100%',
-    marginTop: '20px'
+    marginTop: '20px',
 };
 
 function AddReview({ openModal, setOpenModal }) {

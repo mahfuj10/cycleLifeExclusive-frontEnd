@@ -5,6 +5,7 @@ import { BiLogInCircle } from 'react-icons/bi';
 import { FcGoogle } from 'react-icons/fc';
 import { IoLogoFacebook } from 'react-icons/io5';
 import { useHistory, useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 import Navbar from '../../Home/Navigation/Navigation/Navigation';
 import useAuth from '../../Hooks/useAuth';
 
@@ -106,6 +107,8 @@ const RegisterBox = () => {
                         <label style={labelInput}> Retype Password *</label>
                         <input onChange={e => setRePassword(e.target.value)} style={inputStyle} type="password" required />
 
+
+                        <label style={{ fontWeight: 600, fontSize: '14px', color: "#98a1bc" }}>Already have an account? <Link to="/login">Login here</Link></label>
 
                         <button type='submit' style={submitButton}>Register <BiLogInCircle /></button>
 

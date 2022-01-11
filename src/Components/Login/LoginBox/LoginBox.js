@@ -74,6 +74,12 @@ function LoginBox() {
 
             <Box sx={{ width: '100%', height: '100vh', typography: 'body1', display: 'grid', justifyContent: 'center', alignItems: 'center', background: '#111318' }}>
 
+                <Paper elevation={5} sx={{ position: "absolute", background: "#1D2029", color: "#fff", fontWeight: 500, p: 3 }}>
+                    <Typography variant='body'>Admin Email: admin@gmail.com</Typography> <br />
+                    <Typography variant='body'>Admin Pass: 123456</Typography>
+                </Paper>
+
+
                 <Paper elevation={5} sx={{ width: '350px', p: 3, background: "#1D2029" }}>
                     <Typography variant='h5' sx={{ fontWeight: 600, mb: 2, color: "whitesmoke" }}>Sign In</Typography>
                     <form className='login-form' onSubmit={handaleSubmitForm}>
@@ -105,6 +111,8 @@ function LoginBox() {
                         </Button>
 
                     </Box>
+
+
 
                     {success && <Alert sx={{ mt: 5, mb: 2 }} severity="success">{success}</Alert>}
                     {error && <Alert severity="error">{error}</Alert>}

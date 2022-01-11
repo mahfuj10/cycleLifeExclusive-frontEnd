@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Alert, Box, Modal, Fade, Grid, Typography, Backdrop } from '@mui/material';
+import { Alert, Box, Modal, Fade, Grid, Typography, Backdrop, Paper } from '@mui/material';
 import loginBanner from '../../../images/loginPopupBanner.jpg';
 import LoginPopup from '../Login/LoginPopup';
 import useAuth from '../../Hooks/useAuth';
@@ -52,6 +52,12 @@ function LoginModal({ openModal, setOpenModal }) {
                                     welcome <br /> to<br />
                                     cyclelife
                                 </Typography>
+
+
+                                <Paper elevation={5} sx={{ position: "absolute", background: "#1D2029", color: "#fff", fontWeight: 500, p: 3 }}>
+                                    <Typography variant='body'>Admin Email: admin@gmail.com</Typography> <br />
+                                    <Typography variant='body'>Admin Pass: 123456</Typography>
+                                </Paper>
 
                                 <Box>
                                     {success && <Alert sx={{ mt: 5, mb: 2 }} severity="success">{success}</Alert>}

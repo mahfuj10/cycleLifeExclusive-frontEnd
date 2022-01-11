@@ -4,6 +4,7 @@ import { BiLogInCircle } from 'react-icons/bi';
 import { FcGoogle } from 'react-icons/fc';
 import { IoLogoFacebook } from 'react-icons/io5';
 import { useHistory, useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
 const Register = () => {
@@ -73,6 +74,7 @@ const Register = () => {
                 <input onChange={e => setPassword(e.target.value)} placeholder='Your password *' style={inputStyle} type="password" required />
 
                 <input onChange={e => setRePassword(e.target.value)} placeholder='Retype password *' style={inputStyle} type="password" required />
+
 
                 <button type='submit' style={submitButton}><BiLogInCircle /> Register </button>
 
