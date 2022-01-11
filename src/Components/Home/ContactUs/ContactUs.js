@@ -47,7 +47,7 @@ const ContactUs = () => {
                     CONTACT US
                 </Typography>
 
-                <Typography variant='h1' sx={{ color: "#ffff", fontSize: '30px', mt: -3, letterSpacing: 2, mb: 10 }}>GET IN TOUCH</Typography>
+                <Typography variant='h1' sx={{ color: "#ffff", fontSize: '30px', mt: -3, letterSpacing: 2, mb: 10, fontWeight: 600 }}>GET IN TOUCH</Typography>
 
                 <Grid container sx={{ alignItems: 'center', mb: 15 }}>
 

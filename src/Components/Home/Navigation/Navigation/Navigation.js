@@ -14,6 +14,8 @@ import { makeStyles } from '@mui/styles';
 import { AiOutlineHome } from 'react-icons/ai';
 import { BsBicycle } from 'react-icons/bs';
 import { MdOutlineDashboard } from 'react-icons/md';
+import { searchName } from '../../../../Redux/actions/action';
+import { useDispatch } from 'react-redux';
 
 
 export const searchContext = createContext();
@@ -21,6 +23,7 @@ export const searchContext = createContext();
 const Navbar = () => {
 
     const theme = useTheme();
+    const dispatch = useDispatch();
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [openDrawer, setOpenDrawer] = React.useState(false);
     const [openModal, setOpenModal] = React.useState(false);
@@ -37,6 +40,7 @@ const Navbar = () => {
         setAnchorElUser(null);
     };
 
+    // nav button
     const navButton = {
         width: "45px",
         height: "45px",
@@ -46,7 +50,7 @@ const Navbar = () => {
         backgroundColor: "#1D2029",
         color: "whiteSmoke"
     };
-
+    // link of navbar
     const navLink = {
         textDecoration: "none",
         color: "white",
@@ -54,11 +58,16 @@ const Navbar = () => {
         letterSpacing: "3px",
         fontSize: '15px'
     };
-
+    // dispacth(searchName(text))
     // drawer open
     const handleDrawerOpen = () => {
         setOpenDrawer(true);
     };
+
+    // set search value on redux
+    const dispatchSearchValue = e => {
+        dispatch(searchName(e.target.value));
+    }
 
     // search popup
 
@@ -164,7 +173,6 @@ const Navbar = () => {
             </List>
         </Box>
     );
-    console.log(user.photoURL)
 
     return (
         <>
@@ -309,7 +317,7 @@ const Navbar = () => {
                 <span className="closebtn" onClick={closeSearchBox} title="Close Overlay">×</span>
                 <Box className="overlay-content">
                     <form id='search' onSubmit={handaleSubmitForm}>
-                        <input onChange={e => setSearchValue(e.target.value)} type="search" placeholder="Search.." name="search" />
+                        <input onChange={dispatchSearchValue} type="search" placeholder="Search.." name="search" />
                     </form>
                 </Box>
             </Box>

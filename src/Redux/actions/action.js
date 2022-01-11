@@ -17,3 +17,10 @@ export const setProducts = (product) => {
         payload: product
     }
 }
+
+export const searchName = (searchName) => {
+    return {
+        type: "SET_SEARCH_VALUE",
+        payload: searchName
+    }
+}

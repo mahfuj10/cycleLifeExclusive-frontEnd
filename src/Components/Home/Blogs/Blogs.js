@@ -50,7 +50,7 @@ export default function Blogs() {
                     Latest News
                 </Typography>
 
-                <Typography variant='h1' sx={{ color: "#ffff", fontSize: '30px', mt: -3, letterSpacing: 3 }}>OUR BLOGS</Typography>
+                <Typography variant='h1' sx={{ color: "#ffff", fontSize: '30px', mt: -3, letterSpacing: 3, fontWeight: 600 }}>OUR BLOGS</Typography>
 
 
                 <Grid container spacing={2}>
