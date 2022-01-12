@@ -18,7 +18,6 @@ import { searchName } from '../../../../Redux/actions/action';
 import { useDispatch } from 'react-redux';
 
 
-export const searchContext = createContext();
 
 const Navbar = () => {
 
@@ -28,7 +27,6 @@ const Navbar = () => {
     const [openDrawer, setOpenDrawer] = React.useState(false);
     const [openModal, setOpenModal] = React.useState(false);
     const [state, setState] = React.useState(false);
-    const [searchProducts, setSearchValue] = useContext(searchContext)
     const { user, handaleLogOut } = useAuth();
 
     // setSearchValue("Hello world")

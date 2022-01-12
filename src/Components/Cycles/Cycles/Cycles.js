@@ -2,18 +2,28 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Box, CircularProgress, Grid, Typography } from '@mui/material';
 import './Cycle.css';
 import Aos from 'aos';
-import Navbar, { searchContext } from '../../Home/Navigation/Navigation/Navigation';
+import Navbar from '../../Home/Navigation/Navigation/Navigation';
 import Footer from '../../Home/Footer/Footer';
 import Cycle from '../Cycle/Cycle';
+import { searchProducts } from '../../../Redux/actions/action';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { searchName } from '../../../Redux/actions/action';
 
 const Cycles = () => {
 
     const [cycles, setCycles] = useState([]);
-    const [searchProducts, setSearchProducts] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [page, setPage] = useState(0);
-    const [searchValue] = useContext(searchContext);
+    const dispatch = useDispatch();
     const size = 8;
+
+    const search = useSelector(state => state.search?.payload);
+
+
+    if (search === undefined) {
+        dispatch(searchName(''))
+    }
 
     // fetch data
 
@@ -22,7 +32,6 @@ const Cycles = () => {
             .then(res => res.json())
             .then(data => {
                 setCycles(data.products);
-                setSearchProducts(data.products);
                 const count = data.count;
                 const pageNumber = Math.ceil(count / size);
                 setPageCount(pageNumber);
@@ -30,7 +39,7 @@ const Cycles = () => {
     }, [page]);
 
     // match product
-    const matchProducts = cycles.filter(cycle => cycle.name.toLowerCase().includes(searchValue.toLowerCase()));
+    const matchProducts = cycles.filter(cycle => cycle.name.toLowerCase().includes(search?.toLowerCase()));
 
     // aos
     React.useEffect(() => {
@@ -72,7 +81,7 @@ const Cycles = () => {
                     </Typography>
 
                     {
-                        matchProducts.length === 0 ?
+                        matchProducts?.length === 0 ?
                             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                                 <CircularProgress sx={{ color: 'whitesmoke' }} />
                             </Box>

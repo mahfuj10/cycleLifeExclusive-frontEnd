@@ -6,7 +6,6 @@ import Cycles from './Components/Cycles/Cycles/Cycles';
 import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 import Payment from './Components/Dashboard/Payment/Payment';
 import Home from './Components/Home/Home/Home';
-import { searchContext } from './Components/Home/Navigation/Navigation/Navigation';
 import LoginBox from './Components/Login/LoginBox/LoginBox';
 import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
 import RegisterBox from './Components/Login/RegisterBox/RegisterBox';
@@ -17,9 +16,6 @@ import axios from 'axios';
 
 function App() {
 
-  const [searchValue, setSearchValue] = useState('');
-
-  // const store = useSelector(state => state.products.products.products)
 
   const dispacth = useDispatch();
   const fetchProducts = async () => {
@@ -34,43 +30,40 @@ function App() {
   return (
 
     <AuthProvider>
+      <BrowserRouter>
+        <Switch>
 
-      <searchContext.Provider value={[searchValue, setSearchValue]}>
-        <BrowserRouter>
-          <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
 
-            <Route exact path="/">
-              <Home />
-            </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
 
-            <Route path="/home">
-              <Home />
-            </Route>
+          <Route path="/cycles">
+            <Cycles />
+          </Route>
 
-            <Route path="/cycles">
-              <Cycles />
-            </Route>
-
-            <PrivateRoute path="/dashboards">
-              <Dashboard />
-            </PrivateRoute>
+          <PrivateRoute path="/dashboards">
+            <Dashboard />
+          </PrivateRoute>
 
 
-            <Route path="/login">
-              <LoginBox />
-            </Route>
+          <Route path="/login">
+            <LoginBox />
+          </Route>
 
-            <Route path="/register">
-              <RegisterBox />
-            </Route>
+          <Route path="/register">
+            <RegisterBox />
+          </Route>
 
-            <Route path="/payment">
-              <Payment />
-            </Route>
+          <Route path="/payment">
+            <Payment />
+          </Route>
 
-          </Switch>
-        </BrowserRouter>
-      </searchContext.Provider>
+        </Switch>
+      </BrowserRouter>
     </AuthProvider>
   );
 }

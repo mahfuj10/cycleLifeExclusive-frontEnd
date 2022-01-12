@@ -24,3 +24,10 @@ export const searchName = (searchName) => {
         payload: searchName
     }
 }
+
+export const searchProducts = (products) => {
+    return {
+        type: "SEARCH_PRODUCTS",
+        payload: products
+    }
+}

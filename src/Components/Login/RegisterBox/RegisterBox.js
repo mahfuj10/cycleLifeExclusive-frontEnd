@@ -1,5 +1,4 @@
-import { Box } from '@mui/lab/node_modules/@mui/system';
-import { Alert, Button, Paper, Typography } from '@mui/material';
+import { Alert, Button, Paper, Typography, Box } from '@mui/material';
 import React from 'react';
 import { BiLogInCircle } from 'react-icons/bi';
 import { FcGoogle } from 'react-icons/fc';
