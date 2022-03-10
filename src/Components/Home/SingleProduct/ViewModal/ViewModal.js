@@ -39,6 +39,10 @@ function ViewModal({ openModal, setOpenModal, product }) {
         zIndex: 888
     };
 
+    const handleAddToCart = product => {
+        AddToCart(product)
+    }
+
     return (
         <>
             <Modal
@@ -92,7 +96,7 @@ function ViewModal({ openModal, setOpenModal, product }) {
                                 <Typography variant='h4' sx={{ color: "#fff", mt: 1 }}>${price}</Typography>
 
                                 <Button
-                                    onClick={() => AddToCart(product)}
+                                    onClick={() => handleAddToCart(product)}
                                     style={cartButton}>
                                     <FaOpencart /> Add To Cart
                                 </Button>
